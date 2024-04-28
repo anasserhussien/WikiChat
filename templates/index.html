@@ -72,6 +72,9 @@
             font-size: 18px;
             margin-top: 10px;
         }
+        .error-message{
+            color: rgb(227, 5, 49);
+        }
 
 
 </style>
@@ -87,7 +90,7 @@
             <div class="spinner"></div>
             <p  id="loading-message">Please wait...</p>
         </div>
-
+        <br>
         <div id="error-message" class="error-message"></div>
     </div>
     <script>
@@ -122,7 +125,7 @@
 
 
         function isValidWikipediaUrl(url) {
-            const wikipediaUrlPattern = /^(https?:\/\/)?([\w-]+\.)*wikipe(?:dia\.org).*/i;
+            const wikipediaUrlPattern = /^(https?:\/\/)?([\w-]+\.)*wikipedia\.org*/i;
             return wikipediaUrlPattern.test(url);
         }
         function navigateToPage(page) {
@@ -162,7 +165,9 @@
                         document.getElementById('loading').style.display = 'none';
 
                         // If there was a network error, display it on the page
-                        document.getElementById('error-message').innerText = text;
+                        console.log(text)
+                        document.getElementById('error-message').innerText = "Can't Fetch your article, please try again later.";
+
                     });
                 }
             })
@@ -171,7 +176,7 @@
                 
             })
             .catch((error) => {
-                
+                console.log(error)
             });
         }
     </script>
