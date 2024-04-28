@@ -99,9 +99,13 @@ async def read_wiki_url(request: Request, wiki: Wiki):
 
     url = wiki.wiki_url
     error_message = ""
-    docs = load_wiki_article(url)
-    splits = wiki_text_splitter(docs)
-    await create_db(splits)
+    try:
+        docs = load_wiki_article(url)
+        splits = wiki_text_splitter(docs)
+        await create_db(splits)
+    except Exception as e:
+        print(str(e))
+        raise Exception(str(e))
     #print('Finished execution')
     
     
