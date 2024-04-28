@@ -21,7 +21,6 @@
         }
         .description {
             margin-bottom: 20px;
-            text-align: center;
             max-width: 600px;
             text-align: justify;
         }
@@ -82,8 +81,10 @@
 <body>
     <div class="title">WikiChat</div>
     <p class="description">Welcome to WikiChat, where every question sparks a conversation. Send us a Wikipedia article, and our AI-powered chatbot comes to life, ready to discuss the topic with you in detail. Whether you're curious about historical events, scientific concepts, or cultural phenomena, WikiChat provides you with engaging and informative responses. Start chatting and join the adventure of learning today!</p>
+    <br>
+    <p class="description">Pick any article from: <a href="https://en.wikipedia.org" target="_blank">https://en.wikipedia.org</a> and put the URL in the below box.</p>
     <div class="input-container">
-        <textarea class="input-field" placeholder="Paste your Wikipedia article" id="article-text"></textarea>
+        <textarea class="input-field" placeholder="Paste your Wikipedia article URL" id="article-text"></textarea>
         <button class="send-button" type="submit" onclick="sendArticle()">Send</button>
         <br>
         <div id="loading" style="display:none; text-align:center;">
