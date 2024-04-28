@@ -131,14 +131,16 @@
 
         function sendArticle() {
             const articleURL = document.getElementById('article-text').value;
-            document.getElementById('loading').style.display = 'block';
-            const intervalID = updateMessage();
+            
+            
 
             if (!isValidWikipediaUrl(articleURL)){
                 document.getElementById('error-message').innerText = 'Please enter a valid Wikipedia URL.';
                 return;
             }
             else{
+                document.getElementById('loading').style.display = 'block';
+                const intervalID = updateMessage();
                 document.getElementById('error-message').innerText = ""
             }
             fetch('/send', {
